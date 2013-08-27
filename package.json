@@ -1,0 +1,15 @@
+{
+  "name": "copter",
+  "main": "index.html",
+  "window": {
+    "width": 1000,
+    "height": 600
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "dependencies": {
+    "ar-drone": "~0.1.0",
+    "jshint": "~2.1.10"
+  }
+}

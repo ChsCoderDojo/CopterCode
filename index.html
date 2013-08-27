@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="App">
+  <head>
+    <title>CopterCode</title>
+    <link rel="stylesheet" href="app/components/bootstrap/docs/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="app/components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="app/components/codemirror/theme/monokai.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <style>
+      body {
+        margin-top: 90px;
+      }
+    </style>
+  </head>
+  <body ng-controller="MainCtrl">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">CopterCode</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="btn-toolbar">
+          <div class="btn-group pull-right">
+            <button class="btn" ng-click="reset()">Reset</button>
+            <button class="btn" ng-click="stop()">Stop</button>
+            <button class="btn" ng-click="run()">Run</button>
+            <button class="btn" ng-click="save()">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="height: 400px;font-size: 2em;">
+        <textarea style="height: 100%;width: 100%;" ui-codemirror ng-model="code"></textarea>
+      </div>
+      <div class="row" style="height: 100px;font-size: 1em;color: darkred" ng-show="errors">
+        <p ng-repeat="err in errors">
+          Line: {{err.line}}
+          |
+          Char: {{err.character}}
+          |
+          Error: {{err.reason}}
+        </p>
+      </div>
+    </div>
+    <script src="app/components/codemirror/lib/codemirror.js"></script>
+    <script src="app/components/codemirror/mode/javascript/javascript.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="app/components/angular/angular.js"></script>
+    <script src="app/components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script src="app/index.js"></script>
+  </body>
+</html>
